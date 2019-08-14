@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -16,18 +19,19 @@ namespace WebApi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
-
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("year")]
+        public Year Post(Year value)
         {
+            //JObject jObject = new JObject();
+            //jObject["year"] = value.year;
+            return value;
         }
 
         // PUT api/values/5
