@@ -1,0 +1,17 @@
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApiTests.deps.json
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApiTests.runtimeconfig.json
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApiTests.runtimeconfig.dev.json
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApiTests.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApiTests.pdb
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApi.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\bin\Debug\netcoreapp2.2\WebApi.pdb
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.csprojAssemblyReference.cache
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.csproj.CoreCompileInputs.cache
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.AssemblyInfoInputs.cache
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.AssemblyInfo.cs
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.csproj.CopyComplete
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.dll
+C:\Users\vnagaraju\source\repos\WebApi\WebApiTests\obj\Debug\netcoreapp2.2\WebApiTests.pdb
