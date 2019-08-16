@@ -10,6 +10,18 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -123,6 +135,8 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+# Click-Once directory
+publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
