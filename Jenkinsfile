@@ -23,13 +23,13 @@ pipeline {
         {
             steps
             {
-              powershell(script: 'docker build -t $PATH .')   
+              powershell(script: 'docker build -t webapiimage .')   
             }
         }
     }
     post{
         success{
-            powershell(script: 'docker run  -p 8979:80  $PATH .')
+            powershell(script: 'docker run  -p 8979:80  webapiimage .')
         }
     }
 }
