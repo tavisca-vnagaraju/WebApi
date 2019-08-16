@@ -20,14 +20,12 @@ pipeline {
         {
             steps
             {
-                powershell(script: 'compress-archive WebApi/artifacts publish.zip -Update')
-                archiveArtifacts artifacts: 'publish.zip'    
+              powershell(script: 'docker build -t webapiimage .')   
             }
         }
     }
     post{
         success{
-            powershell(script: 'docker build -t webapiimage .')
             powershell(script: 'docker run  -p 8979:80  webapiimage .')
         }
     }
