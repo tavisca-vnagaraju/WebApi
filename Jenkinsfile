@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment
+    {
+        projectToBePublished = 'WebApi'
+    }
     stages {
         stage('Build') {
             steps {
@@ -13,7 +17,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish WebApi -c Release -o publish')
+                powershell(script: 'dotnet publish $env:WebApi -c Release -o publish')
           }
        }
        stage('Archive')
