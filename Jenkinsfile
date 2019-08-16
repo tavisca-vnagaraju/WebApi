@@ -4,10 +4,6 @@ pipeline {
     {
         string(name: 'PROJECT_NAME', defaultValue: 'WebApi')
     }
-    environment
-    {
-        projectToBePublished = '$env:PROJECT_NAME'
-    }
     stages {
         stage('Build') {
             steps {
@@ -21,7 +17,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $projectToBePublished -c Release -o publish')
+                powershell(script: 'dotnet publish ${env:PROJECT_NAME} -c Release -o publish')
           }
        }
        stage('Archive')
