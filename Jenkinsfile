@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Given Solution Path is :%SOLUTION_PATH%'
+                bat "echo 'Given Solution Path is :%SOLUTION_PATH%'"
                 bat 'dotnet build %SOLUTION_PATH% -p:configuration=release -v:n'
             }
         }
@@ -23,7 +23,7 @@ pipeline {
     }
     post{
         success{
-            echo "....archiving artifacts....."
+            bat "echo....archiving artifacts....."
             archiveArtifacts '**'
             bat 'docker build -t webapiimage .'
             bat 'docker run  -p 8979:80  webapiimage .'
