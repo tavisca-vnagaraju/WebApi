@@ -6,10 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "========================one =============================================="
-                echo "params.SOLUTION_PATH %params.SOLUTION_PATH%"
-                echo "=========================two============================================="
-                bat 'dotnet build WebApi.sln -p:configuration=release -v:n'
+                bat 'dotnet build %params.SOLUTION_PATH% -p:configuration=release -v:n'
             }
         }
         stage('Test'){
@@ -24,7 +21,7 @@ pipeline {
        }
     }
     post{
-        always{
+        success{
             archiveArtifacts '**'
             bat 'dotnet WebApi/bin/Debug/netcoreapp2.2/WebApi.dll'
         }
