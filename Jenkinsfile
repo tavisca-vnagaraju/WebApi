@@ -6,30 +6,30 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                powershell(script: 'dotnet build WebApi.sln -p:configuration=release -v:n')
+                powershell 'dotnet build WebApi.sln -p:configuration=release -v:n'
             }
         }
         stage('Test'){
           steps  {
-                powershell(script: 'dotnet test')
+                powershell 'dotnet test'
           }
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $env:PATH -c Release -o artifacts')
+                powershell 'dotnet publish $env:PATH -c Release -o artifacts'
           }
        }
        stage('Archive')
         {
             steps
             {
-              powershell(script: 'docker build -t webapiimage .')   
+              powershell 'docker build -t webapiimage .'
             }
         }
     }
     post{
         success{
-            powershell(script: 'docker run  -p 8979:80  webapiimage .')
+            powershell 'docker run  -p 8979:80  webapiimage .'
         }
     }
 }
