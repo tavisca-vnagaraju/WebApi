@@ -21,7 +21,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $env:projectToBePublished -c Release -o publish')
+                powershell(script: 'dotnet publish $projectToBePublished -c Release -o publish')
           }
        }
        stage('Archive')
