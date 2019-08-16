@@ -17,7 +17,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'The name is : ${env:PROJECT_NAME}')
+                powershell(script: "echo 'The name is : ${env:PROJECT_NAME}'")
                 powershell(script: 'dotnet publish ${env:PROJECT_NAME} -c Release -o publish')
           }
        }
