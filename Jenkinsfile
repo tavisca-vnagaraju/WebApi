@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    parameters{
-      string(name:'PATH')
-    }
     stages {
         stage('Build') {
             steps {
@@ -16,7 +13,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $PATH -c Release -o publish')
+                powershell(script: 'dotnet publish WebApi -c Release -o publish')
           }
        }
        stage('Archive')
