@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                powershell(script: 'dotnet build -p:configuration=release -v:n')
+                powershell(script: 'dotnet build WebApi.sln -p:configuration=release -v:n')
             }
         }
         stage('Test'){
