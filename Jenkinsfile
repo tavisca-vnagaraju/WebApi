@@ -16,7 +16,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $PATH -c Release -o publish')
+                powershell(script: 'dotnet publish $PATH -c Release -o artifacts')
           }
        }
        stage('Archive')
