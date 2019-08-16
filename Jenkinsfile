@@ -13,7 +13,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish')
+                powershell(script: 'dotnet publish WebApi -c Release -o artifacts')
           }
        }
     }
