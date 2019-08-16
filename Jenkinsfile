@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                powershell(script: "echo 'Given Solution Path is :%SOLUTION_PATH%'")
-                powershell(script: "'dotnet build %SOLUTION_PATH% -p:configuration=release -v:n'")
+                powershell(script: "echo 'Given Solution Path is :$env:SOLUTION_PATH'")
+                powershell(script: "'dotnet build $env:SOLUTION_PATH -p:configuration=release -v:n'")
             }
         }
         stage('Test'){
