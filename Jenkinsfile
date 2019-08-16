@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "========================one =============================================="
-                echo "params.SOLUTION_PATH %params.SOLUTION_PATH}%"
+                echo "params.SOLUTION_PATH %params.SOLUTION_PATH%"
                 echo "=========================two============================================="
                 bat 'dotnet build WebApi.sln -p:configuration=release -v:n'
             }
