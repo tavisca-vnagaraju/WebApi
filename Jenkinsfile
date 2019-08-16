@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                powershell(script: 'dotnet build ${PATH} -p:configuration=release -v:n')
+                powershell(script: 'dotnet build WebApi.sln -p:configuration=release -v:n')
             }
         }
         stage('Test'){
@@ -16,7 +16,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script: 'dotnet publish $PATH -c Release -o artifacts')
+                powershell(script: 'dotnet publish $env:PATH -c Release -o artifacts')
           }
        }
        stage('Archive')
