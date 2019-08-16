@@ -1,13 +1,9 @@
 pipeline {
     agent any
-    parameters{
-      string(name:'SOLUTION_PATH')
-    }
     stages {
         stage('Build') {
             steps {
-                powershell(script: 'Given Solution Path is :$env:SOLUTION_PATH')
-                powershell(script: 'dotnet build $env:SOLUTION_PATH -p:configuration=release -v:n')
+                powershell(script: 'dotnet build -p:configuration=release -v:n')
             }
         }
         stage('Test'){
