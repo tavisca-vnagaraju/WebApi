@@ -16,6 +16,14 @@ pipeline {
                 powershell(script: 'dotnet publish WebApi -c Release -o artifacts')
           }
        }
+       stage('Archive')
+        {
+            steps
+            {
+                powershell(script: 'compress-archive WebApi/artifacts publish.zip -Update')
+                archiveArtifacts artifacts: 'publish.zip'    
+            }
+        }
     }
     post{
         success{
