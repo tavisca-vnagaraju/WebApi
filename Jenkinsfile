@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build ${params.SOLUTION_PATH} -p:configuration=release -v:n'
+                bat 'dotnet build'+${params.SOLUTION_PATH}+'-p:configuration=release -v:n'
             }
         }
         stage('Test'){
