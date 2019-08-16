@@ -19,7 +19,7 @@ pipeline {
     }
     post{
         success{
-            powershell(script: 'echo....archiving artifacts.....')
+            powershell(script: "echo '....archiving artifacts.....'")
             powershell(script: 'docker build -t webapiimage .')
             powershell(script: 'docker run  -p 8979:80  webapiimage .')
         }
