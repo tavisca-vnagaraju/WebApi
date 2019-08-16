@@ -21,7 +21,8 @@ pipeline {
         success{
             echo "....archiving artifacts....."
             archiveArtifacts '**'
-            bat 'docker run  -p 8979:80  webapiimage'
+            bat 'docker build -t webapiimage .'
+            bat 'docker run  -p 8979:80  webapiimage .'
         }
     }
 }
