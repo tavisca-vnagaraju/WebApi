@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    parameters{
+      string ('name':'SOLUTION_PATH')
+    }
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build WebApi.sln -p:configuration=release -v:n'   
+                bat 'dotnet build ${params.SOLUTION_PATH} -p:configuration=release -v:n'
             }
         }
         stage('Test'){
@@ -17,10 +20,10 @@ pipeline {
           }
        }
     }
-     post{
-                always{
-                    archiveArtifacts '**'
-                    bat 'dotnet WebApi/bin/Debug/netcoreapp2.2/WebApi.dll'
-                }
-       }
+    post{
+        always{
+            archiveArtifacts '**'
+            bat 'dotnet WebApi/bin/Debug/netcoreapp2.2/WebApi.dll'
+        }
+    }
 }
