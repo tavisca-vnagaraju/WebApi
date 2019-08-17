@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        string(name:"IMAGE_NAME",defaultValue:"WebApi")
+        string(name:"IMAGE_NAME",defaultValue:"webapi")
         string(name:"SOLUTION_NAME",defaultValue:"WebApi.sln")
         string(name:"DOCKER_USERNAME",defaultValue:"vamsi8979")
         string(name:"DOCKER_PASSWORD",defaultValue:"vamsy123")
