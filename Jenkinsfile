@@ -25,11 +25,11 @@ pipeline {
               powershell(script:'dotnet publish -c Release -o ../publish')
           }
        }
-        stage('Archive'){
-            steps {
-              archiveArtifacts artifacts: 'publish/*.*',fingerprint:true
-            }
-        }
+       // stage('Archive'){
+        //    steps {
+         //     archiveArtifacts artifacts: 'publish/*.*',fingerprint:true
+          //  }
+        //}
         stage('Docker build'){
             steps{
               powershell(script:'docker build -t ${env:IMAGE_NAME} .')
