@@ -1,37 +1,25 @@
 pipeline {
-    agent any
-    parameters 
-    {
-        string(name: 'PROJECT_NAME', defaultValue: 'WebApi')
+     agent any
+    parameters{
+        string(name: 'DOCKER_USERNAME', defaultValue: 'vamsi8979')
+        string(name: 'DOCKER_REPO_NAME', defaultValue: 'webapi')
+        string(name: 'TAG_NAME', defaultValue: 'api')
+        string(name:"PORT",defaultValue:"8979")
     }
     stages {
-        stage('Build') {
-            steps {
-                powershell(script: 'dotnet build -p:configuration=release -v:n')
-            }
-        }
-        stage('Test'){
-          steps  {
-                powershell(script: 'dotnet test')
-          }
-       }
-       stage('Publish'){
-          steps  {
-                powershell(script: "echo 'The name is : ${env:PROJECT_NAME}'")
-                powershell(script: 'dotnet publish ${env:PROJECT_NAME} -c Release -o publish')
-          }
-       }
-       stage('Archive')
+      stage('Docker Image Pull')
+      {
+        steps
         {
-            steps
-            {
-              powershell(script: 'docker build -t webapiimage .')   
-            }
+          powershell(script:'docker pull  ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}') 
         }
-    }
-    post{
-        success{
-            powershell(script: 'docker run  -p 8979:80  webapiimage .')
+      }
+      stage('Docker Run')
+      {
+        steps
+        {        
+          powershell(script:'docker run -p ${env:PORT}:80 ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')  
         }
+      }    
     }
 }
