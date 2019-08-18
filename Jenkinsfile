@@ -4,7 +4,7 @@ pipeline {
         string(name:"IMAGE_NAME",defaultValue:"webapi")
         string(name:"SOLUTION_NAME",defaultValue:"WebApi.sln")
         string(name:"DOCKER_USERNAME",defaultValue:"vamsi8979")
-        password(name:"DOCKER_PASSWORD",defaultValue:"vamsy123")
+        string(password:"DOCKER_PASSWORD",defaultValue:"vamsy123")
         string(name:"DOCKER_REPO_NAME",defaultValue:"webapi")
         string(name:"TAG_NAME",defaultValue:"api")
         
@@ -30,26 +30,25 @@ pipeline {
               archiveArtifacts artifacts: 'publish/*.*',fingerprint:true
             }
         }
-        stage('Docker Build'){
+        stage('Docker build'){
             steps{
               powershell(script:'docker build -t ${env:IMAGE_NAME} .')
-              powershell(script:'docker push ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
             }
         }
-        stage('Docker Login'){
-          steps{
-            powershell(script:'docker login -u ${env:DOCKER_USERNAME} -p ${env:DOCKER_PASSWORD}')
-          }
+        stage('Docker login'){
+            steps{
+              powershell(script:'docker login -u ${env:DOCKER_USERNAME} -p ${env:DOCKER_PASSWORD}')
+            }
         }
-        stage('Docker Tag'){
-          steps{
-            powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
-          }
+        stage('Docker tag'){
+            steps{
+              powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
+            }
         }
-        stage('Docker Push'){
-          steps{
-            powershell(script:'docker tag ${env:IMAGE_NAME}:latest ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
-          }
+        stage('Docker push'){
+            steps{
+              powershell(script:'docker push ${env:DOCKER_USERNAME}/${env:DOCKER_REPO_NAME}:${env:TAG_NAME}')
+            }
         }
     }
 }
